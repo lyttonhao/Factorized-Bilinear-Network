@@ -48,6 +48,11 @@ $im2rec_path train.lst train/ data/imagenet/train_480_q90.rec resize=480 quality
 
 ## Usage
 
+Download this repo recursively:
+```shell
+git clone --recursive https://github.com/lyttonhao/Factorized-Bilinear-Network.git
+```
+
 We implement two versions of factorized bilinear layer:
 1. `mx.symbol.FMConvolution1()`: similar to Convolution layer with additional FB parameters:
     * **num_factor**: the factor number for the FB layer. We use 20 in CIFAR dataset. For ImageNet, larger value (50) may improve the performance.
