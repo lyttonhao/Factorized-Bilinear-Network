@@ -10,6 +10,6 @@ python train_cifar.py --gpus 2,3 --data-dir /mnt/hdd/lytton/mx_data/cifar-100 --
 python train_cifar.py --gpus 2,3 --data-dir /mnt/hdd/lytton/mx_data/cifar-100 --lr 0.1 --wd 0.0001 --batch-size 128 --data-shape 32 --num-epoches 200 --network resnet-small --num-classes 100 --lr-step 100,150 --model-prefix cifar100_res18 --warmup --res-module-num 18
 
 #cifar100 fmconv
-python train_cifar.py --gpus 2,3 --data-dir /mnt/hdd/lytton/mx_data/cifar-100 --lr 0.1 --wd 0.0001 --batch-size 128 --data-shape 32 --num-epoches 100 --network resnet-small-fmconv --num-classes 100 --lr-step 50,75 --model-prefix cifar100_res18_fmconv22-3  --res-module-num 18  --fmconv-slowstart 3 --fmconv-drop 0.5 --fmconv-factor 20
+python train_cifar.py --gpus 2,3 --data-dir /mnt/hdd/lytton/mx_data/cifar-100 --lr 0.1 --wd 0.0001 --batch-size 128 --data-shape 32 --num-epoches 200 --network resnet-small-fmconv --num-classes 100 --lr-step 100,150 --model-prefix cifar100_res18_fmconv  --res-module-num 18  --fmconv-slowstart 3 --fmconv-drop 0.5 --fmconv-factor 20
 
 
