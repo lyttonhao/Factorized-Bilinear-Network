@@ -50,12 +50,12 @@ $im2rec_path train.lst train/ data/imagenet/train_480_q90.rec resize=480 quality
 
 We implement two versions of factorized bilinear layer:
 1. `mx.symbol.FMConvolution1()`: similar to Convolution layer with additional FB parameters:
-* **num_factor**: the factor number for the FB layer. We use 20 in CIFAR dataset. For ImageNet, larger value (50) may improve the performance.
-* **p**: drop rate for DropFactor
+    * **num_factor**: the factor number for the FB layer. We use 20 in CIFAR dataset. For ImageNet, larger value (50) may improve the performance.
+    * **p**: drop rate for DropFactor
 
 2. `mx.symbol.FMConvolution3()`: speed-up version of `FMConvolution1` using batch_dot, but cost more memory. (The GPU memory may not be enough for large model.)
 
-###CIFAR
+### CIFAR
 The original fully connected layer can be replaced by a `FMConvolution3` layer:
 ```python
 bilinear = mx.symbol.FMConvolution3(data=in5b, num_filter=num_classes, num_factor=args.fmconv_factor,
@@ -68,7 +68,7 @@ python train_cifar.py --gpus 2,3 --data-dir /mnt/hdd/lytton/mx_data/cifar-100 --
 ```
 More examples can be seen in the `cifar/run.sh` and you can run `python cifar/train_cifar.py` with `-h` to see more options.
 
-###ImageNet
+### ImageNet
 Our training policy and augmentation methods follow the [MXNet ResNet](https://github.com/tornadomeet/ResNet#imagenet) which reproduced ResNet in MXNet. Please using specific settings (like lr schedulers and training epochs) in [MXNet ResNet](https://github.com/tornadomeet/ResNet#imagenet) if compares with its original MXNet ResNet results.
 
 An example of training command:
